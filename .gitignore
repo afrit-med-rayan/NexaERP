@@ -1,0 +1,45 @@
+# Private spec — never pushed to GitHub
+NexaERP-spec.md
+
+# Build outputs
+bin/
+obj/
+out/
+dist/
+build/
+
+# .NET
+*.user
+*.suo
+.vs/
+*.DotSettings.user
+TestResults/
+
+# Node / React
+node_modules/
+client/node_modules/
+client/dist/
+client/.vite/
+*.local
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.secrets.json
+secrets.json
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# JetBrains
+.idea/
+
+# VS Code
+.vscode/
