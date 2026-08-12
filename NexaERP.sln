@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9F5BA074-AC94-4977-89E6-E9862FA90D36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexaERP.Domain", "src\NexaERP.Domain\NexaERP.Domain.csproj", "{B0944D82-C31D-40B0-8B5D-B3330B4D088F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexaERP.Application", "src\NexaERP.Application\NexaERP.Application.csproj", "{6E08F7D2-E4C8-496F-87E2-948835354364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexaERP.Infrastructure", "src\NexaERP.Infrastructure\NexaERP.Infrastructure.csproj", "{A0873A1F-3284-474F-8F09-3247A1973A9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexaERP.API", "src\NexaERP.API\NexaERP.API.csproj", "{B029A473-0F1E-4A02-AAFA-DB264A18F44F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2D33DC7B-56CE-45BE-B8D4-5A02C52CA713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexaERP.Tests", "tests\NexaERP.Tests\NexaERP.Tests.csproj", "{7CCA6185-6B25-4E9B-8849-491CE97345A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0944D82-C31D-40B0-8B5D-B3330B4D088F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0944D82-C31D-40B0-8B5D-B3330B4D088F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0944D82-C31D-40B0-8B5D-B3330B4D088F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0944D82-C31D-40B0-8B5D-B3330B4D088F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E08F7D2-E4C8-496F-87E2-948835354364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E08F7D2-E4C8-496F-87E2-948835354364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E08F7D2-E4C8-496F-87E2-948835354364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E08F7D2-E4C8-496F-87E2-948835354364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0873A1F-3284-474F-8F09-3247A1973A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0873A1F-3284-474F-8F09-3247A1973A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0873A1F-3284-474F-8F09-3247A1973A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0873A1F-3284-474F-8F09-3247A1973A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B029A473-0F1E-4A02-AAFA-DB264A18F44F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B029A473-0F1E-4A02-AAFA-DB264A18F44F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B029A473-0F1E-4A02-AAFA-DB264A18F44F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B029A473-0F1E-4A02-AAFA-DB264A18F44F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CCA6185-6B25-4E9B-8849-491CE97345A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCA6185-6B25-4E9B-8849-491CE97345A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCA6185-6B25-4E9B-8849-491CE97345A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCA6185-6B25-4E9B-8849-491CE97345A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0944D82-C31D-40B0-8B5D-B3330B4D088F} = {9F5BA074-AC94-4977-89E6-E9862FA90D36}
+		{6E08F7D2-E4C8-496F-87E2-948835354364} = {9F5BA074-AC94-4977-89E6-E9862FA90D36}
+		{A0873A1F-3284-474F-8F09-3247A1973A9A} = {9F5BA074-AC94-4977-89E6-E9862FA90D36}
+		{B029A473-0F1E-4A02-AAFA-DB264A18F44F} = {9F5BA074-AC94-4977-89E6-E9862FA90D36}
+		{7CCA6185-6B25-4E9B-8849-491CE97345A1} = {2D33DC7B-56CE-45BE-B8D4-5A02C52CA713}
+	EndGlobalSection
+EndGlobal
