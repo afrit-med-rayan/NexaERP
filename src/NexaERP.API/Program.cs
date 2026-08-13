@@ -39,6 +39,8 @@ builder.Services.AddAuthorization();
 
 // ── Application Services ──────────────────────────────────────────────────────
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // ── Controllers & Swagger ─────────────────────────────────────────────────────
 builder.Services.AddControllers();
