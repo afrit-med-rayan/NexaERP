@@ -5,6 +5,7 @@ import { Products } from './pages/Products';
 import { Categories } from './pages/Categories';
 import { Inventory } from './pages/Inventory';
 import { Customers } from './pages/Customers';
+import { SalesOrders } from './pages/SalesOrders';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { useAuthStore } from './stores/authStore';
@@ -64,7 +65,7 @@ function App() {
             {/* Sales */}
             <Route path="sales" element={
               <ProtectedRoute allowedRoles={['Admin', 'Manager', 'SalesEmployee', 'Accountant']}>
-                <div className="animate-fade-in"><h2>Sales Orders — coming in 9.6</h2></div>
+                <SalesOrders />
               </ProtectedRoute>
             } />
           </Route>
