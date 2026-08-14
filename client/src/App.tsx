@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from './pages/Login';
-import { DashboardPlaceholder } from './pages/DashboardPlaceholder';
+import { Dashboard } from './pages/Dashboard';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import { Layout } from './components/Layout';
 import { useAuthStore } from './stores/authStore';
 
 function App() {
@@ -9,22 +10,60 @@ function App() {
 
   return (
     <Router>
-      <div className="app-container">
+      <div style={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
         <Routes>
-          <Route 
-            path="/" 
-            element={<Navigate to={isAuthenticated() ? "/dashboard" : "/login"} replace />} 
+          <Route
+            path="/"
+            element={<Navigate to={isAuthenticated() ? '/dashboard' : '/login'} replace />}
           />
           <Route path="/login" element={<Login />} />
-          
-          <Route 
-            path="/dashboard" 
+
+          {/* Protected layout shell */}
+          <Route
+            path="/dashboard"
             element={
               <ProtectedRoute>
-                <DashboardPlaceholder />
+                <Layout />
               </ProtectedRoute>
-            } 
-          />
+            }
+          >
+            {/* Dashboard index */}
+            <Route index element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager']}>
+                <Dashboard />
+              </ProtectedRoute>
+            } />
+            {/* Products */}
+            <Route path="products" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager']}>
+                <div className="animate-fade-in"><h2>Products — coming in 9.4</h2></div>
+              </ProtectedRoute>
+            } />
+            {/* Categories */}
+            <Route path="categories" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager']}>
+                <div className="animate-fade-in"><h2>Categories — coming in 9.4</h2></div>
+              </ProtectedRoute>
+            } />
+            {/* Inventory */}
+            <Route path="inventory" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager', 'WarehouseEmployee']}>
+                <div className="animate-fade-in"><h2>Inventory — coming in 9.5</h2></div>
+              </ProtectedRoute>
+            } />
+            {/* Customers */}
+            <Route path="customers" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager', 'SalesEmployee', 'Accountant']}>
+                <div className="animate-fade-in"><h2>Customers — coming in 9.5</h2></div>
+              </ProtectedRoute>
+            } />
+            {/* Sales */}
+            <Route path="sales" element={
+              <ProtectedRoute allowedRoles={['Admin', 'Manager', 'SalesEmployee', 'Accountant']}>
+                <div className="animate-fade-in"><h2>Sales Orders — coming in 9.6</h2></div>
+              </ProtectedRoute>
+            } />
+          </Route>
         </Routes>
       </div>
     </Router>
