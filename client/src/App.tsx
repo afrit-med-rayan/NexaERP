@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
+import { Products } from './pages/Products';
+import { Categories } from './pages/Categories';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { useAuthStore } from './stores/authStore';
@@ -36,13 +38,13 @@ function App() {
             {/* Products */}
             <Route path="products" element={
               <ProtectedRoute allowedRoles={['Admin', 'Manager']}>
-                <div className="animate-fade-in"><h2>Products — coming in 9.4</h2></div>
+                <Products />
               </ProtectedRoute>
             } />
             {/* Categories */}
             <Route path="categories" element={
               <ProtectedRoute allowedRoles={['Admin', 'Manager']}>
-                <div className="animate-fade-in"><h2>Categories — coming in 9.4</h2></div>
+                <Categories />
               </ProtectedRoute>
             } />
             {/* Inventory */}
