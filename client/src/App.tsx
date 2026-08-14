@@ -1,12 +1,30 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Login } from './pages/Login';
+import { DashboardPlaceholder } from './pages/DashboardPlaceholder';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { useAuthStore } from './stores/authStore';
 
 function App() {
+  const { isAuthenticated } = useAuthStore();
+
   return (
     <Router>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="/dashboard" element={<div className="glass-panel" style={{margin: '2rem', padding: '2rem'}}><h1>Dashboard placeholder</h1></div>} />
+          <Route 
+            path="/" 
+            element={<Navigate to={isAuthenticated() ? "/dashboard" : "/login"} replace />} 
+          />
+          <Route path="/login" element={<Login />} />
+          
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <DashboardPlaceholder />
+              </ProtectedRoute>
+            } 
+          />
         </Routes>
       </div>
     </Router>
