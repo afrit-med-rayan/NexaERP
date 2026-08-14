@@ -3,6 +3,8 @@ import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Products } from './pages/Products';
 import { Categories } from './pages/Categories';
+import { Inventory } from './pages/Inventory';
+import { Customers } from './pages/Customers';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Layout } from './components/Layout';
 import { useAuthStore } from './stores/authStore';
@@ -50,13 +52,13 @@ function App() {
             {/* Inventory */}
             <Route path="inventory" element={
               <ProtectedRoute allowedRoles={['Admin', 'Manager', 'WarehouseEmployee']}>
-                <div className="animate-fade-in"><h2>Inventory — coming in 9.5</h2></div>
+                <Inventory />
               </ProtectedRoute>
             } />
             {/* Customers */}
             <Route path="customers" element={
               <ProtectedRoute allowedRoles={['Admin', 'Manager', 'SalesEmployee', 'Accountant']}>
-                <div className="animate-fade-in"><h2>Customers — coming in 9.5</h2></div>
+                <Customers />
               </ProtectedRoute>
             } />
             {/* Sales */}
