@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: nexaerp_db
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=NexaERP_DB_Password_123!
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P NexaERP_DB_Password_123! -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  api:
+    build:
+      context: .
+      dockerfile: src/NexaERP.API/Dockerfile
+    container_name: nexaerp_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=NexaERP;User Id=sa;Password=NexaERP_DB_Password_123!;TrustServerCertificate=True;
+      - Jwt__Key=MySuperSecretKeyForNexaERPJWT_WhichNeedsToBeAtLeast32BytesLong123!
+      - Jwt__Issuer=NexaERP
+      - Jwt__Audience=NexaERPUser
+    ports:
+      - "5000:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:5000/api
+    container_name: nexaerp_client
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
