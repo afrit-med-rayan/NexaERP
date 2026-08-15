@@ -9,7 +9,7 @@ graph TD
     Client[React SPA Client]
     Client -->|REST API / JSON| API[NexaERP.API]
     
-    subgraph Backend [Backend (.NET 8)]
+    subgraph Backend
         API --> App[NexaERP.Application]
         App --> Domain[NexaERP.Domain]
         API --> Infra[NexaERP.Infrastructure]
