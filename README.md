@@ -1,47 +1,89 @@
-# NexaERP
+<div align="center">
+  <h1>🚀 NexaERP</h1>
+  <p><strong>A Modern, Full-Stack Enterprise Resource Planning Application</strong></p>
+  
+  [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
+  [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![SQL Server](https://img.shields.io/badge/SQL_Server-2022-CC292B?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)](https://www.microsoft.com/en-us/sql-server)
+  [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+</div>
 
-NexaERP is a modern, full-stack Enterprise Resource Planning (ERP) web application built to streamline product management, inventory tracking, customer relationships, and sales order processing. It features a robust multi-tiered backend built with .NET 8 and a sleek, responsive React frontend.
+<br />
 
-## Features
+NexaERP is a comprehensive, production-ready Enterprise Resource Planning (ERP) web application. It streamlines product management, inventory tracking, customer relationships, and sales order processing through a clean, role-based interface.
 
-- **Authentication & Authorization**: Role-based access control (Admin, Manager, WarehouseEmployee, SalesEmployee, Accountant) with JWT authentication.
-- **Product & Category Management**: Comprehensive CRUD operations for managing product catalogs and categorization.
-- **Inventory Management**: Real-time stock tracking across multiple warehouses, low-stock alerts, and manual stock adjustments.
-- **Customer Management**: Maintain a central registry of customer profiles, contact information, and addresses.
-- **Sales Orders**: Streamlined order creation with real-time stock validation, automated inventory deduction, and order cancellation workflows.
-- **Dashboard & Analytics**: Live tracking of key performance indicators (KPIs) and a 30-day sales revenue chart.
+---
 
-## Architecture & Database Design
+## 📋 Table of Contents
+- [✨ Features](#-features)
+- [🏗️ Architecture & Database Design](#️-architecture--database-design)
+- [💻 Tech Stack](#-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+- [🔑 Demo Credentials](#-demo-credentials)
+- [📖 API Documentation](#-api-documentation)
+- [🧪 Testing](#-testing)
+- [🗺️ Roadmap](#️-roadmap)
+- [📄 License](#-license)
+
+---
+
+## ✨ Features
+
+- **🔐 Authentication & Authorization:** Role-based access control (Admin, Manager, WarehouseEmployee, SalesEmployee, Accountant) secured via JWT.
+- **📦 Product & Category Management:** Comprehensive CRUD operations for maintaining detailed product catalogs and categorizations.
+- **🏢 Inventory Management:** Real-time stock tracking across multiple warehouses, automated low-stock alerts, and manual adjustment auditing.
+- **👥 Customer Management:** Centralized registry of customer profiles, contact information, and shipping addresses.
+- **🛒 Sales Orders:** Streamlined order creation featuring real-time stock validation, automated inventory deduction, and robust cancellation workflows.
+- **📊 Dashboard & Analytics:** Live tracking of Key Performance Indicators (KPIs) and a dynamic 30-day sales revenue visualization.
+
+## 🏗️ Architecture & Database Design
 
 NexaERP follows a clean, multi-layered architecture separating presentation, application logic, domain models, and data access infrastructure.
 
-Please see the [Architecture Documentation](docs/architecture.md) for detailed Mermaid diagrams of the system architecture and database schema.
+<details>
+<summary><b>View High-Level Architecture</b></summary>
+<br>
 
-## Tech Stack
+* Backend: Multi-tier .NET 8 API (Controllers -> Application Services -> Domain -> Infrastructure).
+* Frontend: React Single Page Application communicating via REST.
+* Database: SQL Server 2022 accessed via Entity Framework Core.
 
-**Backend:**
-- C# / .NET 8 (ASP.NET Core Web API)
-- Entity Framework Core (SQL Server)
-- JWT Bearer Authentication
-- xUnit & Moq (Testing)
+</details>
 
-**Frontend:**
-- React (via Vite)
-- TypeScript
-- Zustand (State Management)
-- Axios (API Client)
-- Recharts (Data Visualization)
-- Lucide React (Icons)
-- Vanilla CSS with CSS Variables (Premium Glassmorphism UI)
+👉 **For detailed Mermaid diagrams, see the [Architecture Documentation](docs/architecture.md).**
 
-**Infrastructure:**
-- Docker & Docker Compose
-- Nginx (Frontend Hosting)
-- SQL Server 2022 (Database)
+## 💻 Tech Stack
 
-## Getting Started
+### Backend
+* **Framework:** C# / ASP.NET Core 8 Web API
+* **ORM:** Entity Framework Core
+* **Security:** JWT Bearer Authentication & BCrypt Password Hashing
+* **Testing:** xUnit & Moq
 
-You can run the entire NexaERP application stack, including the database, backend API, and frontend client, using Docker Compose.
+### Frontend
+* **Core:** React 18, TypeScript, Vite
+* **State Management:** Zustand
+* **Networking:** Axios (with custom interceptors)
+* **UI/UX:** Vanilla CSS (Glassmorphism design system), Lucide React, Recharts
+
+### Infrastructure
+* **Containerization:** Docker & Docker Compose
+* **Web Server:** Nginx (Alpine)
+* **Database:** Microsoft SQL Server 2022
+
+---
+
+## 🚀 Getting Started
+
+You can run the entire NexaERP application stack locally with a single command using Docker Compose.
+
+### Prerequisites
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running.
+- Git.
+
+### Installation
 
 1. **Clone the repository:**
    ```bash
@@ -53,48 +95,59 @@ You can run the entire NexaERP application stack, including the database, backen
    ```bash
    docker compose up --build
    ```
-
-   *Note: The API service waits for the SQL Server container to become healthy before starting. Upon startup, the API will automatically apply EF Core database migrations and seed the initial data.*
+   > **Note:** The backend API container is configured to wait for the SQL Server container to become healthy. Upon successful connection, the API will automatically run EF Core migrations and seed the database with initial users and roles.
 
 3. **Access the application:**
-   - **Frontend:** http://localhost:3000
-   - **Backend API:** http://localhost:5000/api
-   - **Swagger UI:** http://localhost:5000/swagger
+   - 🌐 **Frontend UI:** [http://localhost:3000](http://localhost:3000)
+   - ⚙️ **Backend API:** [http://localhost:5000/api](http://localhost:5000/api)
+   - 📚 **Swagger Docs:** [http://localhost:5000/swagger](http://localhost:5000/swagger)
 
-### Demo Credentials
+---
 
-The database is seeded with a set of default users covering various roles. Use the following credentials to log in (Password for all users is `Role#2024`):
+## 🔑 Demo Credentials
 
-| Role | Email |
-|------|-------|
-| Admin | admin@nexaerp.com |
-| Manager | manager@nexaerp.com |
-| Warehouse Employee | warehouse@nexaerp.com |
-| Sales Employee | sales@nexaerp.com |
-| Accountant | accountant@nexaerp.com |
+The database is automatically seeded with default users covering all system roles. You can log into the frontend using any of the accounts below. 
 
-## API Documentation
+> **Password for all demo accounts:** `Role#2024`
 
-The REST API is fully documented using Swagger/OpenAPI. Once the application is running, navigate to `http://localhost:5000/swagger` to view the interactive API documentation and test endpoints.
+| Role | Email | Capabilities |
+|------|-------|-------------|
+| **Admin** | `admin@nexaerp.com` | Full system access. |
+| **Manager** | `manager@nexaerp.com` | Can manage products, categories, view inventory, and cancel sales orders. |
+| **Warehouse** | `warehouse@nexaerp.com` | Can view inventory and perform manual stock adjustments. |
+| **Sales** | `sales@nexaerp.com` | Can create customers and place sales orders. |
+| **Accountant** | `accountant@nexaerp.com` | Can view customers and sales orders. |
 
-## Testing
+---
 
-The backend includes a comprehensive suite of unit and integration tests using xUnit, testing the core domain logic, application services, and transaction handling.
+## 📖 API Documentation
 
-To run the tests locally:
+The REST API is fully documented using Swagger/OpenAPI. Once the application is running via Docker Compose, navigate to [http://localhost:5000/swagger](http://localhost:5000/swagger) to view the interactive API documentation and test endpoints directly from your browser.
+
+---
+
+## 🧪 Testing
+
+The backend includes a comprehensive suite of unit and integration tests covering domain logic, application services, and concurrent transaction handling.
+
+To run the tests locally (requires the .NET 8 SDK):
 ```bash
 cd tests/NexaERP.Tests
 dotnet test
 ```
 
-## Roadmap
+---
 
-Future planned features for NexaERP include:
-- **Suppliers & Purchase Orders**: Managing vendor relationships and tracking inbound inventory.
-- **Payments & Invoicing**: Generating invoices from sales orders and tracking payment statuses.
-- **Warehouse Transfers**: Moving stock seamlessly between different warehouse locations.
-- **Advanced Reporting**: Exporting reports to PDF/Excel and adding custom date-range filters to the dashboard.
+## 🗺️ Roadmap
 
-## License
+Future enhancements planned for NexaERP:
+- [ ] **Suppliers & Purchase Orders:** Manage vendor relationships and track inbound inventory.
+- [ ] **Payments & Invoicing:** Generate PDF invoices from sales orders and track payment lifecycles.
+- [ ] **Warehouse Transfers:** Move stock seamlessly between different physical warehouse locations.
+- [ ] **Advanced Reporting:** Export reports to PDF/Excel and add custom date-range filters to the dashboard.
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
