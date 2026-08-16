@@ -116,7 +116,7 @@ export function Dashboard() {
             <Tooltip
               contentStyle={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)' }}
               labelStyle={{ color: 'var(--text-primary)', fontWeight: 600 }}
-              formatter={(value: number) => [formatCurrency(value), 'Revenue']}
+              formatter={(value: any) => [formatCurrency(value as number), 'Revenue']}
             />
             <Area
               type="monotone"
