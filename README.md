@@ -108,15 +108,15 @@ You can run the entire NexaERP application stack locally with a single command u
 
 The database is automatically seeded with default users covering all system roles. You can log into the frontend using any of the accounts below. 
 
-> **Password for all demo accounts:** `Role#2024`
+> **Note:** Each user role has a specific password listed below.
 
-| Role | Email | Capabilities |
-|------|-------|-------------|
-| **Admin** | `admin@nexaerp.com` | Full system access. |
-| **Manager** | `manager@nexaerp.com` | Can manage products, categories, view inventory, and cancel sales orders. |
-| **Warehouse** | `warehouse@nexaerp.com` | Can view inventory and perform manual stock adjustments. |
-| **Sales** | `sales@nexaerp.com` | Can create customers and place sales orders. |
-| **Accountant** | `accountant@nexaerp.com` | Can view customers and sales orders. |
+| Role | Email | Password | Capabilities |
+|------|-------|----------|-------------|
+| **Admin** | `admin@nexaerp.com` | `Admin#2024` | Full system access. |
+| **Manager** | `manager@nexaerp.com` | `Manager#2024` | Can manage products, categories, view inventory, and cancel sales orders. |
+| **Warehouse** | `warehouse@nexaerp.com` | `Warehouse#2024` | Can view inventory and perform manual stock adjustments. |
+| **Sales** | `sales@nexaerp.com` | `Sales#2024` | Can create customers and place sales orders. |
+| **Accountant** | `accountant@nexaerp.com` | `Account#2024` | Can view customers and sales orders. |
 
 ---
 
